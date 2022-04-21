@@ -1,9 +1,10 @@
 package com.example.restapicall.spring;
 
+import com.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@RequestMapping("/web")
 public class HelloWordController {
     @GetMapping("/message")
     public String message() {
@@ -12,11 +13,15 @@ public class HelloWordController {
 
     @GetMapping("/query")
     public String sayHello(@RequestParam String name) {
-        return "Hello "+name+" From BridgeLabz";
-    }
-    @GetMapping("/param/{name}")
-    public String sayHelloParam(@PathVariable String name) {
-        return "Hello "+name+" From BridgeLabz";
-    }
+        return "Hello " + name + " From BridgeLabz";
     }
 
+    @GetMapping("/param/{name}")
+    public String sayHelloParam(@PathVariable String name) {
+        return "Hello " + name + " From BridgeLabz";
+    }
+    @PostMapping ("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " !";
+    }
+}
