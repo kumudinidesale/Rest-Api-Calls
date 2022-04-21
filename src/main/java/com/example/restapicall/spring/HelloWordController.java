@@ -1,14 +1,18 @@
 package com.example.restapicall.spring;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/hello")
+
 public class HelloWordController {
-    @RequestMapping(value = {"", "/" }, method = RequestMethod.GET)
-    public String sayHello() {
-        return "Hello from Bridgelabz";
+    @GetMapping("/message")
+    public String message() {
+        return "Hello From BridgeLabz";
     }
-}
+
+    @GetMapping("/query")
+    public String sayHello(@RequestParam String name) {
+        return "Hello "+name+" From BridgeLabz";
+    }
+    }
+
