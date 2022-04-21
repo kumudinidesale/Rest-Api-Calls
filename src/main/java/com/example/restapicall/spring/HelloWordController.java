@@ -14,5 +14,9 @@ public class HelloWordController {
     public String sayHello(@RequestParam String name) {
         return "Hello "+name+" From BridgeLabz";
     }
+    @GetMapping("/param/{name}")
+    public String sayHelloParam(@PathVariable String name) {
+        return "Hello "+name+" From BridgeLabz";
+    }
     }
 
